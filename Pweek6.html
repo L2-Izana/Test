@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Two's Complement</title>
+    </head>
+    <body>
+        <header>
+            <h1>Two's Complement</h1>
+            <ul>
+                <li><a href="#s1">Fundamental knowledge and introduction to Two's complement</a></li>
+                <li><a href="#s2">How Two's complement is expressed</a></li>
+            </ul>
+        </header>
+        <Section>
+            <h3 id="s1"><b>1. Fundamental knowledge and introduction to Two's complement</b></h3>
+            <p>Before discussing about Two's complement, you <b><i>should</i></b> grasp the fundamental knowledge about <b>bits</b> (binary digits) by:</p>
+            <ul>
+                <li>Watching this Youtube <a href="https://www.youtube.com/watch?v=Xpk67YzOn5w" title="Why Do Computers Use 1s and 0s? Binary and Transistors Explained.">video</a>.</li>
+                <li>Reading this <a href="https://www.techtarget.com/whatis/definition/bit-binary-digit?fbclid=IwAR1c8NyitsuZhZqKrOk0jv-RbCsLaJpWmqSoNcVc6Bzn04lETYEUEwjOj7M" title="What is bit (binary digit) in computing"> article</a>.</li>
+            </ul>
+            <p>
+                Congratulations! You have just had the first step in knowing more about computers and digital world.<br/>
+                As you know, we are using decimal number system (base ten). <br/>
+                Every number used in daily life are created from 10 digits: 0, 1, 2,3, 4, 5, 6, 7, 9.<br/>
+                For example:
+                <ul type="circle">
+                    <li>You get a <b>88</b> on your test.</li>
+                    <li>You have $<b>21,760,427</b> in your bank account.</li>
+                </ul>  
+                However, computers are unable to understand those base-10 number like humans. <br/>
+                Therefore, to make them understand decimal numbers like humans, scientists make use of binary system (the least complex digit system, only 0 and 1) to create an own language for computers using electric signals.<br/>
+                Using the 8-bit binary number (for simplicity):
+                <ul type="circle">
+                    <li>The test mark <b>88</b> is understood by computer as <b>01011000</b> because <b>88 = 1*64 + 0*32 + 1*16 + 1*8 + 0*4 + 9*2 + 0*1</b>. </li>
+                    <li>Similarly, $<b>21,760,427</b> is represented as <b>1 0100 1100 0000 1001 1010 1011</b>.</li>
+                </ul> 
+                So as in Mathematics, a 8-bit system can represent every integer from 0 to 255 and nowdays, the 64-bit system can represent at most an incredibly massive number.<br/>
+                However, if you play gambling and loose all your $<b>21,760,427</b> in your bank account and unfortunately have $<b>100</b> in debt. So we can say that you have <b>-100</b> dollars.<br/>
+                But what? Till now, we only know that computer can interpret an integer that is greater than or equal to 0.<br/>
+                Luckily, scientists create new useful concepts: <b>Signed and Unsigned binary number system</b>, <b>One's complement</b>, and <b>Two's complement</b>.<br/>
+                Let's step to <a href="#s2">Section 2</a> for further explanations of those concepts.   
+            </p>
+        </Section>
+        <section>
+            <h3 id="s2"><b>2. How Two's complement is expressed</b></h3>
+            <ol type="a">
+                <li>
+                    <h4 id="a">Signed and Unsigned binary number system:</h4>
+                    <p><i>For explanations and examples, let's use <b>8-bit number</b> for simplicity</i></p>
+                    <p>As in <a href="#s1">Section 1</a>, we know that the highest positive number can be represented is <b>255</b> (<b>1111 1111</b>) and people call these 0 and positive sets of numbers only are represented as a <b>Unsigned binary number system</b></p>
+                    <p> But in <b>Signed binary number system</b>, from <b>255</b> (<b>1111 1111</b>) in <b>Unsigned binary number system</b> is only equal to <b>-1</b> in this sytem. Suprised, right? Don't worry, we have just create the first ever negative number for the computer.</p>
+                    <p>The rule for the <b>Signed binary number system</b> is extremely easy to comprehend, just remember:</p>
+                    <p>Consider the <b>left-most bit</b> as a sign of the integer:</p>
+                    <ul type="square">
+                        <li><b>0</b> indicates a <b>positive</b> number.</li>
+                        <li><b>1</b> indicates a <b>negative</b> number.</li>
+                    </ul>
+                    <p>For example: <b>1000 0001</b> indicates a negative number where as <b>0111 1110</b> indicates a postive number.</p>
+                    <p>Here, we have an important assumption from this rule: Instead of a range of 0 to 255 in <b>Unsigned binary number system</b>, the <b>Signed binary number system</b> is unable to understand all integers in range -128 to 127</p>
+                    <p>Let's jump in <a href="#b">Part b</a> to have more deeper understanding.</p>
+                </li>
+                <li>
+                    <h4 id="b">One's complement and Two's complement:</h4>
+                    <p>As in <a href="#a">Part a</a>, we know that <b>Signed binary number system</b> can help computers understand the negative decimal numbers. So now, let's grasp the most important knowledge - <b>Using the 2's complement number system to represent negative integers</b>:</p>
+                    <p>Taking <b>7</b> or <b>0000 0111</b> as the example here. Let's understand the procedure of why this postive number is related to <b>1111 1001</b> or <b>-7</b></p>
+                    <ol>
+                        <li>Firstly, we create the <b>One's complement</b> by toggling 1 to 0 and 0 to 1. Specifically, the <b>One's complement</b> of <b>0000 0111</b> is <b>1111 1000</b>.</li>
+                        <p>Similarly, the <b>One's complement</b> of <b>0101 0101</b>(<b>85</b>) is <b>1010 1010</b></p>
+                        <li>Secondly, we add 1 to the <b>One's complement</b> to create the <b>Two's complement</b>. Specifically, the <b>Two's complement</b> of <b>0000 1111</b> is <b>1111 1000</b> + 1 = <b>1111 1001</b>(<b>-7</b>)</li>
+                        <p>Similarly, the <b>Two's complement</b> of <b>0101 0101</b> is <b>1010 010</b> + 1 = <b>10101011</b>(<b>-85</b>).</p>
+                        <li>Finally, to verify:</li>
+                        <ul type="square">
+                            <li><p><b>0000 0111</b> + <b>1111 1001</b> = <i>1</i> <b>0000 0000</b></p></li>
+                            <li><p><b>0101 0101</b> + <b>1010 1011</b> = <i>1</i> <b>0000 0000</b></p></li>
+                        </ul>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+    </body>
+</html>
